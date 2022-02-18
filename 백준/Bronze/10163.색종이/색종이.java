@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 
 public class Main {
     static StringBuilder sb = new StringBuilder();
-    static int[][] board = new int[1001][1001];
+    static int[][] board = new int[101][101];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -26,8 +26,8 @@ public class Main {
         }
         for (int i = 1; i <= N; i++) {
             int cnt = 0;
-            for (int j = 0; j < 1001; j++) {
-                for (int k = 0; k < 1001; k++) {
+            for (int j = 0; j < 101; j++) {
+                for (int k = 0; k < 101; k++) {
                     if(board[j][k] == i) cnt++;
                 }
             }
