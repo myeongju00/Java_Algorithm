@@ -8,7 +8,6 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		//두 요금을 가자 저장
 		int ym = 0;
 		int mm = 0;
 		
