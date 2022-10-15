@@ -1,27 +1,33 @@
-import java.io.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Locale;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String s;
-        Pattern pattern = Pattern.compile("[aeiou]");
-
-        StringBuilder sb = new StringBuilder();
-        while (!(s = br.readLine().toLowerCase()).equals("#")) {
-            Matcher matcher = pattern.matcher(s);
-
-            int cnt = 0;
-            while (matcher.find()) {
-                cnt++;
+    public static int vowelChecker(String[] arr) {
+        int vowelCount = 0;             // 모음의개수
+        for (String str : arr) {
+            str = str.toLowerCase();       
+            if(str.equals("a") || str.equals("e") || str.equals("i") || str.equals("o") || str.equals("u")){
+                vowelCount++;
             }
-            sb.append(cnt + "\n");
+        }
+        return vowelCount;
+    }
+
+    public static void main(String[] args) throws IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        while (true){
+            StringTokenizer st = new StringTokenizer(br.readLine(), "");
+            String temp = st.nextToken();              
+            if(temp.equals("#")) break;
+            
+            String[] arr;
+            arr = temp.split("");                     
+            System.out.println(vowelChecker(arr));
         }
 
-        bw.write(sb.substring(0, sb.length() - 1));
-        bw.close();
-        br.close();
     }
 }
