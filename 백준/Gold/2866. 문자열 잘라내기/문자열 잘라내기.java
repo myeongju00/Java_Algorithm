@@ -35,10 +35,10 @@ public class Main {
 
         for (int i = 0; i < C; i++) {
             StringBuilder sb = new StringBuilder();
-            for (int j = 1; j < R; j++) { 
+            for (int j = 1; j < R; j++) {
                 sb.append(table[j][i]);
             }
-            arr[i] = sb + "";
+            arr[i] = sb.toString();
         }
 
         for (int i = 0; i < R; i++) {
