@@ -10,10 +10,9 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         String string = br.readLine();
 
-        int count = 1, answer = 0;
-        alphabet[string.charAt(0) - 'a']++;
+        int count = 0, answer = 0;
 
-        for(int start = 0, end = 1; end < string.length(); end++) {
+        for(int start = 0, end = 0; end < string.length(); end++) {
             if(alphabet[string.charAt(end) - 'a']++ == 0) {
                 count++;
             }
