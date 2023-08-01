@@ -7,6 +7,7 @@ class Solution {
         for(int i : index_list) {
             answer += stringArr[i];
         }
+        
         return answer;
     }
 }
