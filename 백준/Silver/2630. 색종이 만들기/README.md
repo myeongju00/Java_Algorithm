@@ -1,4 +1,4 @@
-# [Silver III] 색종이 만들기 - 2630 
+# [Silver II] 색종이 만들기 - 2630 
 
 [문제 링크](https://www.acmicpc.net/problem/2630) 
 
@@ -8,7 +8,11 @@
 
 ### 분류
 
-분할 정복(divide_and_conquer), 재귀(recursion)
+분할 정복, 재귀
+
+### 제출 일자
+
+2022년 5월 25일 22:09:33
 
 ### 문제 설명
 
