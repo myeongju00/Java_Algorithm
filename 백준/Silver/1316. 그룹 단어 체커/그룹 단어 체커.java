@@ -1,42 +1,41 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-public class Main{
 
-    static int N;
+public class Main {
+    public static int N, M;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(st.nextToken());
 
         int result = 0;
-
-        while (N-- > 0) {
-            char[] words = br.readLine().toCharArray();
-            Map<Character, Integer> map = new HashMap<>();
-            map.put(words[0], 1);
+        for(int i = 0; i < N; i++){
+            char[] alphabet = new char[26];
+            char[] arr = br.readLine().toCharArray();
             boolean flag = true;
 
-            for (int i = 1; i < words.length; i++) {
-                if (!map.containsKey(words[i])) {
-                    map.put(words[i], 1);
-                } else if (words[i - 1] == words[i]) {
-                    map.put(words[i], map.get(words[i]) + 1);
-                } else if (words[i - 1] != words[i] && map.containsKey(words[i])) {
-                    flag = false;
+            alphabet[arr[0] - 'a']++;
+            for(int j = 1; j < arr.length; j++){
+                if(alphabet[arr[j] - 'a'] == 0) {
+                    alphabet[arr[j] - 'a']++;
+                } else {
+                    if(arr[j - 1] != arr[j]) {
+                        flag = false;
+                    }
                 }
             }
-
             if(flag) {
                 result++;
             }
         }
+
         System.out.println(result);
     }
-
-
 }
