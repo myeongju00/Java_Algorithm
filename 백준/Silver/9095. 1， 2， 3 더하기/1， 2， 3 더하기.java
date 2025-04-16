@@ -1,28 +1,24 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Main {
-    static int T;
-    static int[] DP;
+    static int[] dp = new int[12];
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        T = Integer.parseInt(br.readLine());
-        DP = new int [12];
-        DP[1] = 1;
-        DP[2] = 2;
-        DP[3] = 4;
 
-        for (int i = 4; i < 12; i++) {
-            DP[i] = DP[i-3] + DP[i-2] + DP[i-1];
+        dp[0] = 1;
+        dp[1] = 2;
+        dp[2] = 4;
+        for(int i = 3; i < 12; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2] + dp[i - 3];
         }
 
-        while (T-- > 0) {
+        int T = Integer.parseInt(br.readLine());
+        for (int t = 0; t < T; t++) {
             int n = Integer.parseInt(br.readLine());
-            sb.append(DP[n]).append("\n");
+            System.out.println(dp[n - 1]);
         }
-        System.out.println(sb);
     }
 }
