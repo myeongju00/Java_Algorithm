@@ -3,21 +3,19 @@ class Solution {
         int answer = 0;
         boolean[] visited = new boolean[computers.length];
 
-        for(int i = 0; i < computers.length; i++){
-            if(!visited[i]){
+        for(int i = 0; i < computers.length; i++) {
+            if(!visited[i]) {
+                dfs(i, computers, visited);
                 answer++;
-                dfs(i, visited, computers);
             }
         }
-
         return answer;
     }
-
-    public void dfs(int node, boolean[] visited, int[][] computers){
-        visited[node] = true;
-        for(int i = 0; i < computers.length; i++){
-            if(!visited[i] && computers[node][i] == 1){
-                dfs(i, visited, computers);
+    public void dfs(int start, int[][] computers, boolean[] visited) {
+        visited[start] = true;
+        for(int i = 0; i < computers.length; i++) {
+            if(computers[start][i] == 1 && !visited[i]) {
+                dfs(i, computers, visited);
             }
         }
     }
